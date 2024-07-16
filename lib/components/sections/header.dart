@@ -8,11 +8,11 @@ class Header extends StatelessWidget {
   Widget build(BuildContext context) {
     return Container(
       decoration: const BoxDecoration(
-        color: ThemeColors.primaryColor,
+        color: Color.fromRGBO(0, 51, 153, 1),
         borderRadius: BorderRadius.vertical(bottom: Radius.circular(10)),
       ),
-      child: const Padding(
-        padding: EdgeInsets.fromLTRB(
+      child: Padding(
+        padding: const EdgeInsets.fromLTRB(
           16.0,
           80.0,
           16.0,
@@ -23,7 +23,14 @@ class Header extends StatelessWidget {
           children: <Widget>[
             Column(
               crossAxisAlignment: CrossAxisAlignment.start,
-              children: <Widget>[Text('IPESAÚDE')],
+              children: <Widget>[
+                Image.asset(
+                  width: 199,
+                  height: 74,
+                  'lib/assets/image.png',
+                  fit: BoxFit.cover,
+                ),
+              ],
             )
           ],
         ),

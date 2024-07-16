@@ -2,8 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:totem_ipes/theme/theme_colors.dart';
 
 ThemeData Mytheme = ThemeData(
-  primaryColor: ThemeColors.primaryColor,
-  brightness: Brightness.dark,
+  primaryColor: Color.fromARGB(0, 8, 1, 112),
+  brightness: Brightness.light,
   fontFamily: 'Relaway',
   textTheme: const TextTheme(
     bodyMedium: TextStyle(fontSize: 16),
