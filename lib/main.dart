@@ -2,6 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:totem_ipes/screens/home.dart';
 import 'package:totem_ipes/theme/my_theme.dart';
 
+import 'screens/login.dart';
+
 void main() {
   runApp(const TotemIpes());
 }
@@ -14,7 +16,7 @@ class TotemIpes extends StatelessWidget {
     return MaterialApp(
       title: 'TotemIpes',
       theme: Mytheme,
-      home: const Home(),
+      home: const Login(),
     );
   }
 }
