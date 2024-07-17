@@ -1,8 +1,15 @@
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/widgets.dart';
 
-class Login extends StatelessWidget {
-  const Login({Key? key}) : super(key: key);
+class Login extends StatefulWidget {
+  Login({Key? key}) : super(key: key);
+
+  @override
+  State<Login> createState() => _LoginState();
+}
+
+class _LoginState extends State<Login> {
+  bool _showPassword = false;
 
   @override
   Widget build(BuildContext context) {
@@ -17,32 +24,30 @@ class Login extends StatelessWidget {
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.center,
           children: <Widget>[
-            const SizedBox(
-              height: 80,
-            ),
+            const SizedBox(height: 80),
             Padding(
               padding: const EdgeInsets.all(20),
-              child:
-                  Image.asset(width: 205, height: 82, 'lib/assets/image.png'),
+              child: Image.asset(
+                'lib/assets/image.png', // Corrija o caminho da imagem conforme necessário
+                width: 205,
+                height: 82,
+              ),
             ),
-            const SizedBox(
-              height: 20,
-            ),
+            const SizedBox(height: 20),
             Expanded(
               child: Container(
                 decoration: const BoxDecoration(
                   color: Colors.white,
-                  borderRadius: const BorderRadius.only(
-                      topLeft: Radius.circular(60),
-                      topRight: Radius.circular(60)),
+                  borderRadius: BorderRadius.only(
+                    topLeft: Radius.circular(60),
+                    topRight: Radius.circular(60),
+                  ),
                 ),
                 child: Padding(
                   padding: const EdgeInsets.all(30),
                   child: Column(
                     children: <Widget>[
-                      const SizedBox(
-                        height: 80,
-                      ),
+                      const SizedBox(height: 80),
                       Container(
                         padding: const EdgeInsets.all(20),
                         decoration: BoxDecoration(
@@ -52,10 +57,7 @@ class Login extends StatelessWidget {
                             BoxShadow(
                               color: Color.fromRGBO(0, 51, 153, 1),
                               blurRadius: 20,
-                              offset: Offset(
-                                0,
-                                10,
-                              ),
+                              offset: Offset(0, 10),
                             ),
                           ],
                         ),
@@ -64,63 +66,73 @@ class Login extends StatelessWidget {
                             Container(
                               decoration: const BoxDecoration(
                                 border: Border(
-                                  bottom: BorderSide(
-                                    color: Colors.grey,
-                                  ),
+                                  bottom: BorderSide(color: Colors.grey),
                                 ),
                               ),
                               child: const TextField(
                                 decoration: InputDecoration(
-                                    hintText: "Email",
-                                    hintStyle: TextStyle(
-                                      color: Colors.grey,
-                                    ),
-                                    border: InputBorder.none,
-                                    icon: Icon(Icons.email)),
+                                  hintText: "Email",
+                                  suffixIcon: Icon(Icons.email),
+                                  hintStyle: TextStyle(color: Colors.grey),
+                                  border: InputBorder.none,
+                                ),
                               ),
                             ),
                             Container(
                               decoration: const BoxDecoration(
                                 border: Border(
-                                  bottom: BorderSide(
-                                    color: Colors.grey,
-                                  ),
+                                  bottom: BorderSide(color: Colors.grey),
                                 ),
                               ),
-                              child: const TextField(
+                              child: TextField(
                                 decoration: InputDecoration(
                                   hintText: "Senha",
-                                  hintStyle: TextStyle(
-                                    color: Colors.grey,
-                                  ),
+                                  hintStyle: TextStyle(color: Colors.grey),
                                   border: InputBorder.none,
-                                  icon: Icon(Icons.remove_red_eye_sharp),
+                                  suffixIcon: GestureDetector(
+                                    child: Icon(
+                                      _showPassword
+                                          ? Icons.visibility
+                                          : Icons.visibility_off,
+                                    ),
+                                    onTap: () {
+                                      setState(() {
+                                        _showPassword = !_showPassword;
+                                      });
+                                    },
+                                  ),
                                 ),
+                                obscureText: !_showPassword,
                               ),
                             ),
                           ],
                         ),
                       ),
-                      const SizedBox(
-                        height: 40,
-                      ),
+                      const SizedBox(height: 40),
                       Container(
                         height: 50,
                         margin: const EdgeInsets.symmetric(horizontal: 50),
-                        decoration: BoxDecoration(
-                          borderRadius: BorderRadius.circular(50),
-                          color: const Color.fromRGBO(0, 51, 153, 1),
-                        ),
-                        child: const Center(
+                        child: ElevatedButton(
+                          onPressed: () {
+                            Navigator.pushNamed(context, '/service_unit');
+                          },
                           child: Text(
                             'Entrar',
-                            style: const TextStyle(
+                            style: TextStyle(
                               color: Colors.white,
                               fontWeight: FontWeight.bold,
+                              fontSize: 18,
+                            ),
+                          ),
+                          style: ElevatedButton.styleFrom(
+                            backgroundColor: Color.fromRGBO(
+                                0, 51, 153, 1),
+                            shape: RoundedRectangleBorder(
+                              borderRadius: BorderRadius.circular(50),
                             ),
                           ),
                         ),
-                      )
+                      ),
                     ],
                   ),
                 ),

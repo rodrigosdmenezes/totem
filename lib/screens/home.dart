@@ -12,8 +12,8 @@ class Home extends StatelessWidget {
       body: SingleChildScrollView(
         child: Column(
           children: <Widget>[
-            //Header(),
-            //ServiceUnit(),
+            Header(),
+            ServiceUnit(),
           ],
         ),
       ),
