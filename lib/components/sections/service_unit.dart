@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:totem_ipes/components/box_card.dart';
+import 'package:animated_text_kit/animated_text_kit.dart';
 
 class ServiceUnit extends StatelessWidget {
   const ServiceUnit({Key? key}) : super(key: key);
@@ -7,18 +8,11 @@ class ServiceUnit extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Padding(
-      padding: const EdgeInsets.all(8.0),
+      padding: const EdgeInsets.all(36.0),
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.center,
         mainAxisAlignment: MainAxisAlignment.spaceBetween,
         children: [
-          Padding(
-            padding: const EdgeInsets.only(bottom: 16.0),
-            child: Text(
-              'Unidade de atendimento',
-              style: Theme.of(context).textTheme.titleMedium,
-            ),
-          ),
           Row(
             mainAxisAlignment: MainAxisAlignment.spaceAround,
             //crossAxisAlignment: CrossAxisAlignment.center,
@@ -92,22 +86,36 @@ void showAccountActions(BuildContext context) {
     context: context,
     builder: (BuildContext context) {
       return AlertDialog(
-        title: Text('Selecione o tipo de senha'),
+        title: const Text('Selecione o tipo de senha'),
         content: Column(
           mainAxisSize: MainAxisSize.min,
           children: [
             ListTile(
-              title: Text('Senha Normal'),
+              trailing: const Icon(Icons.emoji_people),
+              title: const Text('Senha Normal'),
+              titleTextStyle: const TextStyle(
+                fontSize: 18,
+                fontWeight: FontWeight.normal,
+                color: Colors.black,
+              ),
               onTap: () {
                 // Lógica para lidar com a seleção de senha normal
                 Navigator.pop(context);
+                _showSuccessDialog(context, 'Senha Normal');
               },
             ),
             ListTile(
-              title: Text('Senha Preferencial'),
+              trailing: const Icon(Icons.accessible),
+              title: const Text('Senha Preferencial'),
+              titleTextStyle: const TextStyle(
+                fontSize: 18,
+                fontWeight: FontWeight.normal,
+                color: Colors.black,
+              ),
               onTap: () {
                 // Lógica para lidar com a seleção de senha preferencial
                 Navigator.pop(context);
+                _showSuccessDialog(context, 'Senha Preferencial');
               },
             ),
           ],
@@ -119,6 +127,32 @@ void showAccountActions(BuildContext context) {
           ),
           TextButton(
             onPressed: () => Navigator.pop(context, 'OK'),
+            child: const Text('OK'),
+          ),
+        ],
+      );
+    },
+  );
+}
+
+void _showSuccessDialog(BuildContext context, String tipoSenha) {
+  showDialog(
+    context: context,
+    builder: (BuildContext context) {
+      return AlertDialog(
+        title: Text('$tipoSenha impressa com sucesso'),
+        content: Column(
+          mainAxisSize: MainAxisSize.min,
+          children: [
+            Icon(Icons.check_circle, color: Colors.green, size: 48),
+            SizedBox(height: 10),
+          ],
+        ),
+        actions: [
+          TextButton(
+            onPressed: () {
+              Navigator.pop(context);
+            },
             child: const Text('OK'),
           ),
         ],

@@ -1,5 +1,6 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:totem_ipes/screens/home.dart';
 
 class Login extends StatefulWidget {
   Login({Key? key}) : super(key: key);
@@ -70,6 +71,9 @@ class _LoginState extends State<Login> {
                                 ),
                               ),
                               child: const TextField(
+                                style: TextStyle(
+                                    fontSize: 16,
+                                    fontWeight: FontWeight.normal),
                                 decoration: InputDecoration(
                                   hintText: "Email",
                                   suffixIcon: Icon(Icons.email),
@@ -85,9 +89,13 @@ class _LoginState extends State<Login> {
                                 ),
                               ),
                               child: TextField(
+                                style: const TextStyle(
+                                    fontSize: 16,
+                                    fontWeight: FontWeight.normal),
                                 decoration: InputDecoration(
                                   hintText: "Senha",
-                                  hintStyle: TextStyle(color: Colors.grey),
+                                  hintStyle:
+                                      const TextStyle(color: Colors.grey),
                                   border: InputBorder.none,
                                   suffixIcon: GestureDetector(
                                     child: Icon(
@@ -114,9 +122,13 @@ class _LoginState extends State<Login> {
                         margin: const EdgeInsets.symmetric(horizontal: 50),
                         child: ElevatedButton(
                           onPressed: () {
-                            Navigator.pushNamed(context, '/service_unit');
+                            Navigator.of(context).push(
+                              MaterialPageRoute(
+                                builder: (context) => const Home(),
+                              ),
+                            );
                           },
-                          child: Text(
+                          child: const Text(
                             'Entrar',
                             style: TextStyle(
                               color: Colors.white,
@@ -125,8 +137,8 @@ class _LoginState extends State<Login> {
                             ),
                           ),
                           style: ElevatedButton.styleFrom(
-                            backgroundColor: Color.fromRGBO(
-                                0, 51, 153, 1),
+                            backgroundColor:
+                                const Color.fromRGBO(0, 51, 153, 1),
                             shape: RoundedRectangleBorder(
                               borderRadius: BorderRadius.circular(50),
                             ),

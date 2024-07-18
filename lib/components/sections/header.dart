@@ -19,7 +19,8 @@ class Header extends StatelessWidget {
           16.0,
         ),
         child: Row(
-          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+          crossAxisAlignment: CrossAxisAlignment.center,
+          //mainAxisAlignment: MainAxisAlignment.spaceBetween,
           children: <Widget>[
             Column(
               crossAxisAlignment: CrossAxisAlignment.start,
@@ -31,7 +32,17 @@ class Header extends StatelessWidget {
                   fit: BoxFit.cover,
                 ),
               ],
-            )
+            ),
+            Padding(
+              padding: const EdgeInsets.fromLTRB(570, 5, 570, 5),
+              child: Text(
+                'Selecione A Unidade De Atendimento',
+                style: TextStyle(
+                  color: Colors.white,
+                  fontSize: 30,
+                ),
+              ),
+            ),
           ],
         ),
       ),
