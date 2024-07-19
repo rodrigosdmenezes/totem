@@ -8,8 +8,8 @@ class BoxCard extends StatelessWidget {
   Widget build(BuildContext context) {
     return Ink(
       child: Container(
-        width: 260,
-        height: 164,
+        width: 360,
+        height: 280,
         padding: const EdgeInsets.all(16.0),
         decoration: BoxDecoration(
           boxShadow: kElevationToShadow[3],

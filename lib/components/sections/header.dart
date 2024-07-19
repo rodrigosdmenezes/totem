@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:totem_ipes/theme/theme_colors.dart';
 
 class Header extends StatelessWidget {
   const Header({Key? key}) : super(key: key);
@@ -33,9 +32,9 @@ class Header extends StatelessWidget {
                 ),
               ],
             ),
-            Padding(
-              padding: const EdgeInsets.fromLTRB(570, 5, 570, 5),
-              child: Text(
+            const Padding(
+              padding: EdgeInsets.fromLTRB(500, 5, 570, 5),
+              child: const Text(
                 'Selecione A Unidade De Atendimento',
                 style: TextStyle(
                   color: Colors.white,

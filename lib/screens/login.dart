@@ -1,4 +1,3 @@
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:totem_ipes/screens/home.dart';
 
@@ -98,7 +97,7 @@ class _LoginState extends State<Login> {
                                       const TextStyle(color: Colors.grey),
                                   border: InputBorder.none,
                                   suffixIcon: GestureDetector(
-                                    child: Icon(
+                                    child: Icon( 
                                       _showPassword
                                           ? Icons.visibility
                                           : Icons.visibility_off,
@@ -128,19 +127,19 @@ class _LoginState extends State<Login> {
                               ),
                             );
                           },
+                          style: ElevatedButton.styleFrom(
+                            backgroundColor:
+                                const Color.fromRGBO(0, 51, 153, 1),
+                            shape: RoundedRectangleBorder(
+                              borderRadius: BorderRadius.circular(50),
+                            ),
+                          ),
                           child: const Text(
                             'Entrar',
                             style: TextStyle(
                               color: Colors.white,
                               fontWeight: FontWeight.bold,
                               fontSize: 18,
-                            ),
-                          ),
-                          style: ElevatedButton.styleFrom(
-                            backgroundColor:
-                                const Color.fromRGBO(0, 51, 153, 1),
-                            shape: RoundedRectangleBorder(
-                              borderRadius: BorderRadius.circular(50),
                             ),
                           ),
                         ),

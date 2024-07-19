@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:totem_ipes/screens/home.dart';
 import 'package:totem_ipes/theme/my_theme.dart';
 
 import 'screens/login.dart';
