@@ -19,27 +19,22 @@ class Header extends StatelessWidget {
         ),
         child: Row(
           crossAxisAlignment: CrossAxisAlignment.center,
-          //mainAxisAlignment: MainAxisAlignment.spaceBetween,
           children: <Widget>[
-            Column(
-              crossAxisAlignment: CrossAxisAlignment.start,
-              children: <Widget>[
-                Image.asset(
-                  width: 199,
-                  height: 74,
-                  'lib/assets/image.png',
-                  fit: BoxFit.cover,
-                ),
-              ],
+            Image.asset(
+              'lib/assets/image.png',
+              width: 199,
+              height: 74,
+              fit: BoxFit.cover,
             ),
-            const Padding(
-              padding: EdgeInsets.fromLTRB(500, 5, 570, 5),
+            const SizedBox(width: 16),
+            const Expanded(
               child: const Text(
                 'Selecione A Unidade De Atendimento',
                 style: TextStyle(
                   color: Colors.white,
                   fontSize: 30,
                 ),
+                textAlign: TextAlign.center,
               ),
             ),
           ],
